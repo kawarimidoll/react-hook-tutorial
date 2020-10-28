@@ -6,7 +6,6 @@ import Search from "./Search";
 
 // use Samuel's api key as study
 const API_KEY = "4a3b711b";
-const MOVIE_API_URL = `https://www.omdbapi.com/?s=man&apikey=${API_KEY}`;
 
 const initialState = {
   loading: true,
@@ -42,17 +41,6 @@ const reducer = (state, action) => {
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  useEffect(() => {
-    fetch(MOVIE_API_URL)
-      .then((response) => response.json())
-      .then((jsonResponse) => {
-        dispatch({
-          type: "SEARCH_MOVIES_SUCCESS",
-          payload: jsonResponse.Search,
-        });
-      });
-  }, []);
-
   const search = (searchValue) => {
     dispatch({
       type: "SEARCH_MOVIES_REQUEST",
@@ -74,6 +62,10 @@ const App = () => {
         }
       });
   };
+
+  useEffect(() => {
+    search("man");
+  }, []);
 
   const { movies, errorMessage, loading } = state;
 
