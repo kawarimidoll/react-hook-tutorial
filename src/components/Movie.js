@@ -4,7 +4,7 @@ const DEFAULT_PLACEHOLDER_IMAGE =
   "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg";
 
 const Movie = ({ movie }) => (
-  <div className="movie">
+  <div className="pt-1 pb-2 px-5 sm:max-w-full my-auto sm:mx-auto md:mx-0 md:max-w-1/2 lg:max-w1/3">
     <h2>{movie.Title}</h2>
     <div>
       <img

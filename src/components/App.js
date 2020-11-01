@@ -1,5 +1,4 @@
 import React, { useReducer, useEffect } from "react";
-import "../App.css";
 import Header from "./Header";
 import Movie from "./Movie";
 import Search from "./Search";
@@ -70,15 +69,15 @@ const App = () => {
   const { movies, errorMessage, loading } = state;
 
   return (
-    <div className="App">
+    <div className="text-center">
       <Header text="HOOKED" />
       <Search search={search} />
-      <p className="App-intro">Sharing a few of our favorite movies</p>
-      <div className="movies">
+      <p className="text-lg">Sharing a few of our favorite movies</p>
+      <div className="flex flex-wrap flex-row">
         {loading && !errorMessage ? (
           <span>loading...</span>
         ) : errorMessage ? (
-          <div className="errorMessage">{errorMessage}</div>
+          <div className="m-auto font-bold text-red-700">{errorMessage}</div>
         ) : (
           movies.map((movie, index) => (
             <Movie key={`${index}-${movie.Title}`} movie={movie} />
